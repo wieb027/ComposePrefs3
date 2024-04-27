@@ -50,6 +50,7 @@ fun MultiSelectListPref(
     dialogBackgroundColor: Color = MaterialTheme.colorScheme.surface,
     textColor: Color = MaterialTheme.colorScheme.onBackground,
     enabled: Boolean = true,
+    darkenOnDisable: Boolean = false,
     entries: Map<String, String> = mapOf() //TODO: Change to List?
 ) {
 
@@ -89,8 +90,9 @@ fun MultiSelectListPref(
         title = title,
         modifier = modifier,
         summary = summary,
+        darkenOnDisable = darkenOnDisable,
         textColor = textColor,
-        enabled = true,
+        enabled = enabled,
         onClick = { if (enabled) showDialog = !showDialog },
     )
 
