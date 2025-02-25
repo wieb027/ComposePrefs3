@@ -1,5 +1,6 @@
 package com.wieb027.composeprefs3.ui.prefs
 
+import android.R
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -46,6 +47,7 @@ fun EditTextPref(
     title: String,
     modifier: Modifier = Modifier,
     summary: String? = null,
+    dialogComposable: @Composable (title: String, message: String, value: String) -> Unit,
     dialogTitle: String? = null,
     dialogMessage: String? = null,
     defaultValue: String = "",
@@ -117,67 +119,6 @@ fun EditTextPref(
         LaunchedEffect(null) {
             textVal = value
         }
-        AlertDialog(
-            modifier = Modifier
-                .fillMaxWidth(0.9f)
-                .onGloballyPositioned {
-                    dialogSize = it.size.toSize()
-                },
-            onDismissRequest = { showDialog = false },
-            title = { DialogHeader(dialogTitle, dialogMessage) },
-            text = {
-                OutlinedTextField(
-                    value = textVal,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    onValueChange = {
-                        textVal = it
-                        onValueChange(it)
-                    }
-                )
-            },
-            confirmButton = {
-                TextButton(
-                    modifier = Modifier.padding(end = 16.dp),
-                    onClick = {
-                        edit()
-                        showDialog = false
-                    }
-                ) {
-                    Text("Save", style = MaterialTheme.typography.bodyLarge)
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    modifier = Modifier.padding(end = 16.dp),
-                    onClick = { showDialog = false }
-                ) {
-                    Text("Cancel", style = MaterialTheme.typography.bodyLarge)
-                }
-            },
-            properties = DialogProperties(usePlatformDefaultWidth = false),
-            containerColor = dialogBackgroundColor,
-        )
-    }
-}
-
-@Composable
-fun DialogHeader(dialogTitle: String?, dialogMessage: String?) {
-
-    Column(modifier = Modifier.padding(16.dp)) {
-        dialogTitle.ifNotNullThen {
-            Text(
-                text = dialogTitle!!,
-                style = MaterialTheme.typography.titleLarge
-            )
-        }?.invoke()
-
-        dialogMessage.ifNotNullThen {
-            Text(
-                text = dialogMessage!!,
-                style = MaterialTheme.typography.bodyLarge
-            )
-        }?.invoke()
+        dialogComposable(title, dialogMessage ?: "", textVal)
     }
 }
