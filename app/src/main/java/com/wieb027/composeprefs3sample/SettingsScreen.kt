@@ -120,7 +120,9 @@ fun SettingsScreen() {
                     EditTextPref(
                         key = "et2",
                         title = "EditText example",
-                        summary = "But it has some summary text"
+                        summary = "But it has some summary text",
+                        defaultValue = "Default value",
+                        dialogTitle = "Dialog Title",
                     )
                 }
                 prefsItem {

@@ -1,10 +1,16 @@
 package com.wieb027.composeprefs3.ui.prefs
 
-import android.R
 import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -12,6 +18,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
@@ -47,7 +54,6 @@ fun EditTextPref(
     title: String,
     modifier: Modifier = Modifier,
     summary: String? = null,
-    dialogComposable: @Composable (title: String, message: String, value: String) -> Unit,
     dialogTitle: String? = null,
     dialogMessage: String? = null,
     defaultValue: String = "",
@@ -119,6 +125,96 @@ fun EditTextPref(
         LaunchedEffect(null) {
             textVal = value
         }
-        dialogComposable(title, dialogMessage ?: "", textVal)
+        BasicAlertDialog(
+            properties = DialogProperties(usePlatformDefaultWidth = false),
+            onDismissRequest = { showDialog = false })
+        {
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth(0.9f)
+                    .onGloballyPositioned {
+                        dialogSize = it.size.toSize()
+                    },
+                shape = RoundedCornerShape(16.dp)
+            ) {
+                Column {
+                    DialogHeader(dialogTitle, dialogMessage)
+                    OutlinedTextField(
+                        value = textVal,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        onValueChange = {
+                            textVal = it
+                            onValueChange(it)
+                        }
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        DialogIconButton(
+                            onClick = {
+                                showDialog = false
+                            },
+                            icon = Icons.Rounded.Close,
+                            null,
+                            modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 16.dp, end = 16.dp)
+                        )
+                        DialogIconButton(
+                            onClick = {
+                                edit()
+                                showDialog = false
+                            },
+                            icon = Icons.Rounded.Check,
+                            null,
+                            modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 16.dp, end = 16.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun DialogHeader(dialogTitle: String?, dialogMessage: String?) {
+
+    Column(modifier = Modifier.padding(16.dp)) {
+        dialogTitle.ifNotNullThen {
+            Text(
+                text = dialogTitle!!,
+                style = MaterialTheme.typography.titleLarge
+            )
+        }?.invoke()
+
+        dialogMessage.ifNotNullThen {
+            Text(
+                text = dialogMessage!!,
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }?.invoke()
+    }
+}
+
+@Composable
+fun DialogIconButton(
+    onClick: () -> Unit,
+    icon: ImageVector,
+    description: String?,
+    modifier: Modifier,
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+        colors =
+        ButtonDefaults.buttonColors(
+//            disabledBackgroundColor = Color(186,186,186),
+//            backgroundColor = Color(0xFF002749),
+            contentColor = Color.White
+        ),
+        contentPadding = PaddingValues(vertical = 15.dp),
+    ) {
+        Icon(icon, description)
     }
 }
