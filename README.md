@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/JamalMulla/ComposePrefs3.svg)](https://jitpack.io/#JamalMulla/ComposePrefs3)
+[![](https://jitpack.io/v/wieb027/ComposePrefs3.svg)](https://jitpack.io/#wieb027/ComposePrefs3)
 
 # ComposePrefs3
 
