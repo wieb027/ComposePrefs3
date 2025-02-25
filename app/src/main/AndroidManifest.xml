@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ComposePrefsSample">
         <activity
-            android:name="com.jamal.composeprefs3sample.MainActivity"
+            android:name="com.wieb027.composeprefs3sample.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ComposePrefsSample.NoActionBar">
