@@ -13,6 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
+private val StartPadding = 16.dp
+
 @Composable
 fun GroupHeader(
     title: String,
@@ -29,12 +31,8 @@ fun GroupHeader(
         Text(
             title,
             color = color,
-            fontSize = LocalTextStyle.current.fontSize.times(FontSizeMultiplier),
+            fontSize = LocalTextStyle.current.fontSize,
             fontWeight = FontWeight.SemiBold
         )
     }
 }
-
-
-private val StartPadding = 16.dp
-private const val FontSizeMultiplier = 0.85f
