@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 21
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -34,7 +34,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion "1.4.7"
     }
-    namespace 'com.jamal.composeprefs3'
+    namespace 'de.arvatosystems.composeprefs3'
 }
 
 dependencies {
@@ -51,9 +51,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.jamalmulla'
+                groupId = 'com.github.wieb027'
                 artifactId = 'ComposePrefs3'
-                version = '1.0.5'
+                version = '1.0.6'
             }
         }
     }
