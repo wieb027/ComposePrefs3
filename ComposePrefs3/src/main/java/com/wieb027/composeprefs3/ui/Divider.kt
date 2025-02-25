@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3.ui
+package com.wieb027.composeprefs3.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

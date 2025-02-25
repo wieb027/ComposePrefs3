@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3sample.ui.theme
+package com.wieb027.composeprefs3sample.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

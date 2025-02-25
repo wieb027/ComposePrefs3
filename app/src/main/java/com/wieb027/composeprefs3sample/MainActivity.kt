@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3sample
+package com.wieb027.composeprefs3sample
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.jamal.composeprefs3sample.ui.theme.ComposePrefsSampleTheme
+import com.wieb027.composeprefs3sample.ui.theme.ComposePrefsSampleTheme
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 

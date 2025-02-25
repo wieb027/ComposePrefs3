@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3.ui.prefs
+package com.wieb027.composeprefs3.ui.prefs
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column
@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.toSize
 import androidx.compose.ui.window.DialogProperties
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.jamal.composeprefs3.ui.LocalPrefsDataStore
-import com.jamal.composeprefs3.ui.ifNotNullThen
+import com.wieb027.composeprefs3.ui.LocalPrefsDataStore
+import com.wieb027.composeprefs3.ui.ifNotNullThen
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

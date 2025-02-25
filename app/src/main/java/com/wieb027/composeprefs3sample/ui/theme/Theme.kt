@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3sample.ui.theme
+package com.wieb027.composeprefs3sample.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3.ui.prefs
+package com.wieb027.composeprefs3.ui.prefs
 
 import android.util.Log
 import androidx.compose.foundation.layout.*
@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.floatPreferencesKey
-import com.jamal.composeprefs3.ui.LocalPrefsDataStore
-import com.jamal.composeprefs3.ui.roundToDP
+import com.wieb027.composeprefs3.ui.LocalPrefsDataStore
+import com.wieb027.composeprefs3.ui.roundToDP
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.lang.Exception

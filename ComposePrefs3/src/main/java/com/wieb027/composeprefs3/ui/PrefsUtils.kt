@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3.ui
+package com.wieb027.composeprefs3.ui
 
 import androidx.compose.runtime.Composable
 import java.math.BigDecimal

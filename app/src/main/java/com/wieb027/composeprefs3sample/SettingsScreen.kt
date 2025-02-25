@@ -1,4 +1,4 @@
-package com.jamal.composeprefs3sample
+package com.wieb027.composeprefs3sample
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -12,9 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.jamal.composeprefs3.ui.GroupHeader
-import com.jamal.composeprefs3.ui.PrefsScreen
-import com.jamal.composeprefs3.ui.prefs.*
+import com.wieb027.composeprefs3.ui.GroupHeader
+import com.wieb027.composeprefs3.ui.PrefsScreen
+import com.wieb027.composeprefs3.ui.prefs.CheckBoxPref
+import com.wieb027.composeprefs3.ui.prefs.DropDownPref
+import com.wieb027.composeprefs3.ui.prefs.EditTextPref
+import com.wieb027.composeprefs3.ui.prefs.ListPref
+import com.wieb027.composeprefs3.ui.prefs.MultiSelectListPref
+import com.wieb027.composeprefs3.ui.prefs.SliderPref
+import com.wieb027.composeprefs3.ui.prefs.SwitchPref
+import com.wieb027.composeprefs3.ui.prefs.TextPref
 
 @OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalComposeUiApi
